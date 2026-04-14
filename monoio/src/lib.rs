@@ -43,7 +43,7 @@ pub use driver::Driver;
 pub use driver::IoUringDriver;
 #[cfg(feature = "legacy")]
 pub use driver::LegacyDriver;
-#[cfg(feature = "iouring")]
+#[cfg(all(target_os = "linux", feature = "iouring"))]
 pub use io_uring::IoUring;
 #[cfg(feature = "macros")]
 pub use monoio_macros::{main, test, test_all};
